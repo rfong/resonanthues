@@ -22,7 +22,7 @@
       },
       { title: 'salad',
         background: 'b2d5ab',
-        primary: ['ec957f'],
+        primary: ['ca5234', 'ec957f'],
         more_colorful: true,
       },
       { title: 'chartreuse',
@@ -44,6 +44,12 @@
         primary: ['e3c6f0'],
         is_dark: true,
       },
+      { title: 'angry political message',
+        background: '2e3038',
+        primary: ['df2119', 'c04a44'],
+        is_dark: true,
+        more_colorful: true,
+      },
     ];
   </script>
 
@@ -59,6 +65,8 @@
         }
         .demo{{$index}} a { color: #{{palette.primary.color.hex}} }
         .demo{{$index}} a:hover { color: #{{palette.getSecondary().hex}} }
+
+        .demo{{$index}}.more-colorful h1 { color: #{{palette.primary.color.hex}}; }
 
         .demo{{$index}} .button:hover {
           background-color: #{{palette.getPrimaryFill().hex}};
@@ -92,7 +100,7 @@
         <div>
           {{ipsum}}
           <a href="#"
-             ng-class="{'bold': palette.text.hex == palette.primary.color.hex}">
+             ng-class="{'bold': palette.text.hex == palette.primary.color.hex || palette.is_dark}">
             link</a>
         </div>
         <div class="button">button</div>
