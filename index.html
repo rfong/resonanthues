@@ -20,17 +20,6 @@
         primary: ['57bf43', 'b2d5ab'],
         secondary: ['e62e00', 'ec957f'],
       },
-      { title: 'salad',
-        background: 'b2d5ab',
-        primary: ['ca5234', 'ec957f'],
-        more_colorful: true,
-      },
-      { title: 'chartreuse',
-        background: '2e3038',
-        text: 'bcd864',
-        primary: ['bcd864'],
-        is_dark: true,
-      },
       { title: 'book of datura',
         background: '9b978b',
         text: '333',
@@ -39,9 +28,22 @@
         is_dark: true,
         more_colorful: true,
       },
-      { title: 'espeon',
+      { title: 'chartreuse',
+        background: '2e3038',
+        text: 'bcd864',
+        primary: ['bcd864'],
+        is_dark: true,
+      },
+      { title: 'sepia portrait',
+        background: 'e8e2d7',
+        primary: ['c25542', 'd1b391'],
+        more_colorful: true,
+      },
+      { title: 'triclinic crystal',
         background: '422e88',
-        primary: ['e3c6f0'],
+        text: 'e7d9df',
+        primary: ['9bb2ef', '7885bc'],
+        secondary: ['b8768c'],
         is_dark: true,
       },
       { title: 'angry political message',
@@ -49,6 +51,22 @@
         primary: ['df2119', 'c04a44'],
         is_dark: true,
         more_colorful: true,
+      },
+      { title: 'thumbs',
+        background: 'd3c1b2',
+        primary: ['bef51b', '9db848'],
+      },
+      { title: 'salad',
+        background: 'b2d5ab',
+        primary: ['ca5234', 'ec957f'],
+        more_colorful: true,
+      },
+      { title: 'funk mothership',
+        background: '1e1b71',
+        text: 'e8c753',
+        primary: ['e8c753'],
+        secondary: ['d01d25', 'ff3f27'],
+        is_dark: true,
       },
     ];
   </script>
@@ -99,9 +117,7 @@
         <h1 ng-if="palette.title">{{palette.title}}</h1>
         <div>
           {{ipsum}}
-          <a href="#"
-             ng-class="{'bold': palette.text.hex == palette.primary.color.hex || palette.is_dark}">
-            link</a>
+          <a href="#">link</a>
         </div>
         <div class="button">button</div>
         <div ng-if="palette.secondary"
