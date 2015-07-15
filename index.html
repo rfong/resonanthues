@@ -1,0 +1,106 @@
+<html ng-app="ColorApp"
+      ng-controller="ColorCtrl">
+<head>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="lib/bootstrap/tooltip.css" />
+  <link rel="stylesheet" href="lib/bootstrap/popover.css" />
+  <link rel="stylesheet" href="index.css" />
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://underscorejs.org/underscore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+  <script types="text/javascript" src="lib/ui-bootstrap-custom-tpls-0.13.0.js"></script>
+
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript">
+    var palettes = [
+      { title: 'madlib',
+        background: 'fffdf9',
+        primary: ['57bf43', 'b2d5ab'],
+        secondary: ['e62e00', 'ec957f'],
+      },
+      { title: 'chartreuse',
+        background: '2e3038',
+        text: 'bcd864',
+        primary: ['bcd864'],
+        is_dark: true,
+      },
+      { title: 'book of datura',
+        background: '9b978b',
+        text: '333',
+        primary: ['c25542', 'ea7c66'],
+        secondary: ['d2d497'],
+        is_dark: true,
+        more_colorful: true,
+      },
+    ];
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div ng-repeat="palette in palettes track by $index"
+         class="palette-container">
+      <style>/* Palette-specific styling */
+        .demo{{$index}} {
+          color: #{{palette.text.hex}};
+        }
+        .demo{{$index}} a { color: #{{palette.primary.color.hex}} }
+        .demo{{$index}} a:hover { color: #{{palette.getSecondary().hex}} }
+
+        .demo{{$index}} .button:hover {
+          background-color: #{{palette.getPrimaryFill().hex}};
+          color: #333;
+        }
+        .demo{{$index}} .button.secondary:hover {
+          background-color: #{{palette.getSecondaryFill().hex}};
+        }
+
+        .demo{{$index}}.more-colorful .button {
+          background-color: #{{palette.getPrimaryFill().hex}};
+        }
+        .demo{{$index}}.more-colorful .button.secondary {
+          background-color: #{{palette.getSecondaryFill().hex}};
+        }
+      </style>
+      <div class="demo demo{{$index}}"
+           ng-class="{'dark': palette.is_dark,
+                      'more-colorful': palette.more_colorful,}"
+           style="background-color: #{{palette.background.hex}}">
+        <h1 ng-if="palette.title">{{palette.title}}</h1>
+        <div>
+          {{ipsum}}
+          <a href="#"
+             ng-class="{'bold': palette.text.hex == palette.primary.color.hex}">
+            link</a>
+        </div>
+        <div class="button">button</div>
+        <div ng-if="palette.secondary"
+             class="button secondary">secondary</div>
+      </div>
+
+      <div class="palette">
+        <div ng-repeat="color in palette.toArray()"
+              class="chip"
+              ng-class="{}"
+              tooltip="#{{color.hex}}"
+              tooltip-placement="top"
+              style="background-color: #{{color.hex}}">
+        </div>
+      </div>
+
+      <div>
+        <i class="fa"
+           ng-class="{'fa-toggle-on': palette.more_colorful,
+                      'fa-toggle-off': !palette.more_colorful}"
+           ng-click="palette.more_colorful = !palette.more_colorful"></i>
+        <span>{{ palette.more_colorful ? 'more colorful' : 'minimalist' }}</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  color: #333; }
+
+.fa {
+  vertical-align: text-bottom; }
+
+*[ng-click] {
+  cursor: pointer; }
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px; }
+
+.palette-container {
+  display: inline-block;
+  margin: 1em; }
+
+.palette {
+  border-left: 1px solid transparent; }
+
+.chip {
+  display: inline-block;
+  width: 30px;
+  height: 30px; }
+
+.demo {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #eee;
+  padding: 1em;
+  box-sizing: border-box; }
+  .demo h1, .demo h2, .demo h3, .demo h4 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 20px; }
+  .demo button, .demo .button, .demo input[type=submit] {
+    margin-right: 0.5em; }
+
+a {
+  text-decoration: none;
+  -moz-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  transition: color 0.2s; }
+
+.button, button, input[type=submit] {
+  cursor: pointer;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-shadow: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.5em 20px;
+  margin: 0.5em 0;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  outline: none;
+  border-style: none;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.demo.dark .button, .demo.dark button, .demo.dark input[type=submit] {
+  background-color: rgba(255, 255, 255, 0.15); }
+
+.bold {
+  font-weight: bold; }
+
+/*# sourceMappingURL=index.css.map */

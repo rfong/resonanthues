@@ -1,0 +1,60 @@
+@import mixins
+
+body 
+  font-family: 'Helvetica Neue', Helvetica, sans-serif
+  font-weight: 300
+  color: #333
+
+.fa
+  vertical-align: text-bottom
+
+*[ng-click]
+  cursor: pointer
+
+.label
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  font-size: 12px
+
+.palette-container 
+  display: inline-block
+  margin: 1em
+
+.palette 
+  border-left: 1px solid transparent
+
+.chip 
+  display: inline-block
+  width: 30px
+  height: 30px
+
+.demo 
+  width: 300px
+  height: 200px
+  border: 1px solid #eee
+  padding: 1em
+  box-sizing: border-box
+
+  h1, h2, h3, h4
+    margin: 0
+    margin-bottom: 5px
+    font-size: 20px
+
+  button, .button, input[type=submit]
+    margin-right: 0.5em
+
+a 
+  text-decoration: none
+  +transition(color 0.2s)
+
+.button, button, input[type=submit]
+  +button
+  text-align: center
+  background-color: rgba(0,0,0,0.1)
+
+.demo.dark
+  .button, button, input[type=submit]
+    background-color: rgba(255,255,255,0.15)
+
+.bold
+  font-weight: bold
