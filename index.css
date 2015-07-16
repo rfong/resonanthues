@@ -33,8 +33,10 @@ body {
   box-sizing: border-box;
   padding: 0.3em 0.2em;
   color: #777; }
-  .controls > div:hover {
-    color: #333; }
+  .controls .control {
+    margin-right: 0.5em; }
+    .controls .control:hover {
+      color: #333; }
 
 .demo {
   position: relative;

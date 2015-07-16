@@ -123,7 +123,7 @@
           {{ipsum}}
           <a href="#">link</a>
         </div>
-        <div class="button">button</div>
+        <div class="button">action</div>
         <div ng-if="palette.secondary"
              class="button secondary">secondary</div>
         <div class="button exit-fullscreen"
@@ -135,23 +135,26 @@
         <div ng-repeat="color in palette.toArray()"
               class="chip"
               ng-class="{}"
-              tooltip="#{{color.hex}}"
+              tooltip-html-unsafe="<input value='#{{color.hex}}' readonly />"
               tooltip-placement="top"
+              onclick="$('.tooltip input').first().focus().select()"
               style="background-color: #{{color.hex}}">
         </div>
       </div>
 
       <div class="controls">
-        <div ng-click="palette.more_colorful = !palette.more_colorful">
+        <span class="control"
+              ng-click="palette.more_colorful = !palette.more_colorful">
           <i class="fa"
              ng-class="{'fa-toggle-on': palette.more_colorful,
                         'fa-toggle-off': !palette.more_colorful}"></i>
           <span>{{ palette.more_colorful ? 'more colorful' : 'minimalist' }}</span>
-        </div>
-        <div ng-click="fullscreen($index)">
+        </span><br />
+        <span class="control"
+              ng-click="fullscreen($index)">
           <i class="fa fa-desktop"></i>
           <span>fullscreen</span>
-        </div>
+        </span>
       </div>
 
     </div>
