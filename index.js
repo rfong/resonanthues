@@ -67,4 +67,20 @@ app.controller('ColorCtrl', function($scope) {
     return new Palette(palette);
   });
 
+  $scope.fullscreen = function(demoIndex) {
+    $('.demo' + demoIndex)
+      .addClass('fullscreen');
+    $(document).keyup(function(e) {
+      if (e.keyCode == 27) {  // escape
+        $scope.exitFullscreen();
+      }
+    });
+  };
+
+  $scope.exitFullscreen = function() {
+    $('.demo.fullscreen').each(function() {
+      $(this).removeClass('fullscreen');
+    });
+  };
+
 });

@@ -68,6 +68,10 @@
         secondary: ['d01d25', 'ff3f27'],
         is_dark: true,
       },
+      { title: 'whyweloveyou',
+        background: 'eee9e8',
+        primary: ['00bac7'],
+      },
     ];
   </script>
 
@@ -122,6 +126,9 @@
         <div class="button">button</div>
         <div ng-if="palette.secondary"
              class="button secondary">secondary</div>
+        <div class="button exit-fullscreen"
+             ng-click="exitFullscreen()">
+          exit fullscreen</div>
       </div>
 
       <div class="palette">
@@ -135,11 +142,16 @@
       </div>
 
       <div class="controls">
-        <i class="fa"
-           ng-class="{'fa-toggle-on': palette.more_colorful,
-                      'fa-toggle-off': !palette.more_colorful}"
-           ng-click="palette.more_colorful = !palette.more_colorful"></i>
-        <span>{{ palette.more_colorful ? 'more colorful' : 'minimalist' }}</span>
+        <div ng-click="palette.more_colorful = !palette.more_colorful">
+          <i class="fa"
+             ng-class="{'fa-toggle-on': palette.more_colorful,
+                        'fa-toggle-off': !palette.more_colorful}"></i>
+          <span>{{ palette.more_colorful ? 'more colorful' : 'minimalist' }}</span>
+        </div>
+        <div ng-click="fullscreen($index)">
+          <i class="fa fa-desktop"></i>
+          <span>fullscreen</span>
+        </div>
       </div>
 
     </div>

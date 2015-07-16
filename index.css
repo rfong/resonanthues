@@ -1,3 +1,6 @@
+html {
+  position: relative; }
+
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 300;
@@ -30,10 +33,11 @@ body {
   box-sizing: border-box;
   padding: 0.3em 0.2em;
   color: #777; }
-  .controls .fa:hover {
+  .controls > div:hover {
     color: #333; }
 
 .demo {
+  position: relative;
   width: 300px;
   height: 200px;
   border: 1px solid #eee;
@@ -45,6 +49,25 @@ body {
     font-size: 20px; }
   .demo button, .demo .button, .demo input[type=submit] {
     margin-right: 0.5em; }
+  .demo .exit-fullscreen {
+    display: none; }
+
+.demo.fullscreen {
+  z-index: 10;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 30vh 35vw;
+  text-align: center; }
+  .demo.fullscreen h1 {
+    font-size: 30px; }
+  .demo.fullscreen .button {
+    margin-top: 1em; }
+  .demo.fullscreen .exit-fullscreen {
+    display: block; }
 
 a {
   text-decoration: none;
