@@ -38,6 +38,13 @@ body {
     .controls .control:hover {
       color: #333; }
 
+.tooltip input {
+  width: 60px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  text-align: center; }
+
 .demo {
   position: relative;
   width: 300px;
