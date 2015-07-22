@@ -1,21 +1,8 @@
 var app = angular.module('ColorApp', ['ui.bootstrap']);
 
-// enum
-var Purpose = Object.freeze({
-  TEXT: 0,
-  AREA: 1,
-});
-
-function Color(hex, purpose) {
-  this.hex = hex;
-  this.purpose = purpose || Purpose.TEXT;
-}
-
 function ColorFamily(color, variant) {
-  this.color = new Color(color, Purpose.TEXT);
-  if (variant) {
-    this.variant = new Color(variant, Purpose.AREA);
-  }
+  this.color = color;
+  if (variant) this.variant = variant;
 }
 
 function getDefaultTextHex(is_dark) {
@@ -23,7 +10,7 @@ function getDefaultTextHex(is_dark) {
 }
 
 // Generates demo-specific CSS
-app.directive('paletteStyle', function () {
+app.directive('paletteStyle', function() {
   return {
     restrict: 'A',
     templateUrl: 'demo.css',
@@ -41,9 +28,9 @@ app.directive('paletteStyle', function () {
 function Palette(params) {
   var self = this;
   angular.extend(this, params);
-  this.text = new Color(params.text || getDefaultTextHex(this.is_dark), Purpose.TEXT);
+  this.text = params.text || getDefaultTextHex(this.is_dark);
   if (params.background) {
-    this.background = new Color(params.background, Purpose.AREA);
+    this.background = params.background;
   }
   if (params.primary) {
     this.primary = new ColorFamily(params.primary[0], params.primary[1]);
@@ -52,7 +39,7 @@ function Palette(params) {
     this.secondary = new ColorFamily(params.secondary[0], params.secondary[1]);
   }
   if (params.highlight) {
-    this.highlight = new Color(params.highlight, Purpose.AREA);
+    this.highlight = params.highlight;
   }
 
   this.toArray = function() {
@@ -74,10 +61,8 @@ function Palette(params) {
   };
 }
 
-app.controller('ColorCtrl', function($scope, $http) {
-  $scope.Purpose = Purpose;
-
-  $scope.palettes = _.map(palettes, function (palette) {
+app.controller('ColorCtrl', function($scope) {
+  $scope.palettes = _.map(palettes, function(palette) {
     return new Palette(palette);
   });
 

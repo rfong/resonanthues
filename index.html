@@ -77,7 +77,7 @@
   </script>
 
 </head>
-<body>
+<body ng-cloak>
 
   <div class="container">
     <div ng-repeat="palette in palettes track by $index"
@@ -91,8 +91,7 @@
       <!-- Demo box -->
       <div class="demo demo{{$index}}"
            ng-class="{'dark': palette.is_dark,
-                      'more-colorful': palette.more_colorful,}"
-           style="background-color: #{{palette.background.hex}}">
+                      'more-colorful': palette.more_colorful,}">
         <h1 ng-if="palette.title">{{palette.title}}</h1>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -111,10 +110,10 @@
         <div ng-repeat="color in palette.toArray()"
               class="chip"
               ng-class="{}"
-              tooltip-html-unsafe="<input value='#{{color.hex}}' readonly />"
+              tooltip-html-unsafe="<input value='#{{color}}' readonly />"
               tooltip-placement="top"
               onclick="$('.tooltip input').first().focus().select()"
-              style="background-color: #{{color.hex}}">
+              style="background-color: #{{color}}">
         </div>
       </div>
 
