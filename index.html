@@ -33,6 +33,7 @@
         text: 'bcd864',
         primary: ['bcd864'],
         is_dark: true,
+        highlight: 'b5b70e'
       },
       { title: 'sepia portrait',
         background: 'e8e2d7',
@@ -84,6 +85,12 @@
       <style>/* Palette-specific styling */
         .demo{{$index}} {
           color: #{{palette.text.hex}};
+        }
+        .demo{{$index}}::selection {
+          background: #{{palette.highlight.hex}};
+        }
+        .demo{{$index}} ::selection {
+          background: #{{palette.highlight.hex}};
         }
         .demo{{$index}} a { color: #{{palette.primary.color.hex}} }
         .demo{{$index}} a:hover { color: #{{palette.getSecondary().hex}} }

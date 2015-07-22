@@ -39,6 +39,9 @@ function Palette(params) {
   if (params.secondary) {
     this.secondary = new ColorFamily(params.secondary[0], params.secondary[1]);
   }
+  if (params.highlight) {
+    this.highlight = new Color(params.highlight, Purpose.AREA);
+  }
 
   this.toArray = function() {
     var arr = [self.background, self.primary.color, self.primary.variant];
