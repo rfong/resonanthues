@@ -82,52 +82,20 @@
   <div class="container">
     <div ng-repeat="palette in palettes track by $index"
          class="palette-container">
-      <style>/* Palette-specific styling */
-        .demo{{$index}} {
-          color: #{{palette.text.hex}};
-        }
-        .demo{{$index}}::selection {
-          background: #{{palette.highlight.hex}};
-        }
-        .demo{{$index}} ::selection {
-          background: #{{palette.highlight.hex}};
-        }
-        .demo{{$index}} a { color: #{{palette.primary.color.hex}} }
-        .demo{{$index}} a:hover { color: #{{palette.getSecondary().hex}} }
 
-        .demo{{$index}}.more-colorful h1 { color: #{{palette.primary.color.hex}}; }
+      <!-- Generated palette-specific CSS -->
+      <style palette-style
+             palette="palette"
+             index="$index"></style>
 
-        .demo{{$index}} .button:hover {
-          background-color: #{{palette.getPrimaryFill().hex}};
-          color: #333;
-        }
-        .demo{{$index}} .button.secondary:hover {
-          background-color: #{{palette.getSecondaryFill().hex}};
-          color: #333;
-        }
-
-        .demo{{$index}}.more-colorful .button {
-          background-color: #{{palette.getPrimaryFill().hex}};
-        }
-        .demo{{$index}}.more-colorful .button.secondary {
-          background-color: #{{palette.getSecondaryFill().hex}};
-        }
-
-        // if dark mode, flip button text when background fill on
-        .demo{{$index}}.dark .button:hover {
-          color: #333;
-        }
-        .demo{{$index}}.dark.more-colorful .button {
-          color: #333;
-        }
-      </style>
+      <!-- Demo box -->
       <div class="demo demo{{$index}}"
            ng-class="{'dark': palette.is_dark,
                       'more-colorful': palette.more_colorful,}"
            style="background-color: #{{palette.background.hex}}">
         <h1 ng-if="palette.title">{{palette.title}}</h1>
         <div>
-          {{ipsum}}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           <a href="#">link</a>
         </div>
         <div class="button">button</div>
@@ -138,6 +106,7 @@
           exit fullscreen</div>
       </div>
 
+      <!-- Palette color chips -->
       <div class="palette">
         <div ng-repeat="color in palette.toArray()"
               class="chip"
@@ -149,6 +118,7 @@
         </div>
       </div>
 
+      <!-- Display controls -->
       <div class="controls">
         <span class="control"
               ng-click="palette.more_colorful = !palette.more_colorful">

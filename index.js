@@ -22,6 +22,18 @@ function getDefaultTextHex(is_dark) {
   return is_dark ? 'f7f7f7' : '333';
 }
 
+// Generates demo-specific CSS
+app.directive('paletteStyle', function () {
+  return {
+    restrict: 'A',
+    templateUrl: 'demo.css',
+    scope: {
+      palette: '=',
+      index: '=',
+    },
+  };
+});
+
 /* :param background: hex string
    :param primary: [hex for main color, hex for area color]
    :param secondary: [hex for main color, hex for area color]
@@ -62,9 +74,8 @@ function Palette(params) {
   };
 }
 
-app.controller('ColorCtrl', function($scope) {
+app.controller('ColorCtrl', function($scope, $http) {
   $scope.Purpose = Purpose;
-  $scope.ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
   $scope.palettes = _.map(palettes, function (palette) {
     return new Palette(palette);

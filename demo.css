@@ -1,0 +1,39 @@
+.demo{{index}} {
+  color: #{{palette.text.hex}};
+}
+
+.demo{{index}}::selection {
+  background: #{{palette.highlight.hex}};
+}
+.demo{{index}} ::selection {
+  background: #{{palette.highlight.hex}};
+}
+
+.demo{{index}} a { color: #{{palette.primary.color.hex}} }
+.demo{{index}} a:hover { color: #{{palette.getSecondary().hex}} }
+
+.demo{{index}}.more-colorful h1 { color: #{{palette.primary.color.hex}}; }
+
+.demo{{index}} .button:hover {
+  background-color: #{{palette.getPrimaryFill().hex}};
+  color: #333;
+}
+.demo{{index}} .button.secondary:hover {
+  background-color: #{{palette.getSecondaryFill().hex}};
+  color: #333;
+}
+
+.demo{{index}}.more-colorful .button {
+  background-color: #{{palette.getPrimaryFill().hex}};
+}
+.demo{{index}}.more-colorful .button.secondary {
+  background-color: #{{palette.getSecondaryFill().hex}};
+}
+
+// if dark mode, flip button text when background fill on
+.demo{{index}}.dark .button:hover {
+  color: #333;
+}
+.demo{{index}}.dark.more-colorful .button {
+  color: #333;
+}
